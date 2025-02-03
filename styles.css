@@ -1,0 +1,884 @@
+/* Reset some basic styles */
+/* รีเซ็ตค่าพื้นฐานของทุก element */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* เพิ่มการเลื่อนที่นุ่มนวลสำหรับทุก element */
+}
+
+/* CSS Variables 🎨 */
+/* ตัวแปร CSS สำหรับเก็บค่าสีและค่าต่างๆ ที่ใช้บ่อย */
+:root {
+    --primary-color: #FF6347; /* 🌺 สีส้มแดง */
+    --secondary-color: #4169E1; /* 🌊 สีน้ำเงินรอยัล */
+    --accent-color: #FFD700; /* ⭐ สีทอง */
+    --dark-color: #1E1E1E; /* 🌑 สีดำ */
+    --light-color: #FFFFFF; /* ☁️ สีขาว */
+    --success-color: #32CD32; /* 🌿 สีเขียวสด */
+    --warning-color: #FFA500; /* ⚠️ สีส้ม */
+    --danger-color: #DC143C; /* 🔥 สีแดงเข้ม */
+    --purple-color: #8A2BE2; /* 🍇 สีม่วงสด */
+    --orange-color: #FF8C00; /* 🍊 สีส้มเข้ม */
+    --transition: all 0.4s ease-in-out;
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-md: 0 6px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.2);
+    --gradient: linear-gradient(135deg, #FF6347, #FF8C00);
+}
+
+/* Base Styles 📝 */
+body {
+    font-family: 'Prompt', sans-serif; /* ฟอนต์หลัก */
+    background:gainsboro;
+    color: var(--dark-color); /* สีข้อความ */
+    font-size: clamp(16px, 2.2vw, 20px); /* ขนาดฟอนต์แบบ responsive */
+    line-height: 1.8; /* ระยะห่างระหว่างบรรทัด */
+    overflow-x: hidden; /* ซ่อน scroll แนวนอน */
+    min-height: 100vh; /* ความสูงขั้นต่ำเท่ากับความสูงหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1s ease-in; /* แอนิเมชันเฟดอินตอนโหลดหน้า */
+}
+
+/* Animation Keyframes */
+/* แอนิเมชันเฟดอิน */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header Styles 🎯 */
+/* สไตล์สำหรับส่วนเฮดเดอร์หลัก */
+.main-header {
+    /* จัดการเลย์เอาท์ด้วย Flexbox */
+    display: flex; /* จัดเรียงองค์ประกอบแนวนอน */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    justify-content: space-between; /* กระจายพื้นที่ระหว่างองค์ประกอบ */  
+    
+    /* การจัดวางและขนาด */
+    padding: 25px  5%; /* ระยะห่างขอบด้านใน */
+    height: 100px; /* ความสูงคงที่ */
+    width: 100%; /* ความกว้างเต็มหน้าจอ */
+    
+    /* การจัดตำแหน่ง */
+    position: fixed; /* ติดอยู่กับหน้าจอ */
+    top: 0; /* ชิดขอบบน */
+    z-index: 1000; /* อยู่ชั้นบนสุด */
+    
+    /* พื้นหลังและเอฟเฟกต์ */
+    background: transparent; /* พื้นหลังโปร่งใส */
+    backdrop-filter: blur(25px); /* เบลอพื้นหลัง */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1); /* เงาด้านล่าง */
+    
+    /* แอนิเมชันและการเปลี่ยนแปลง */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* การเปลี่ยนปลงแบบนุ่มนวล */
+    animation: slideDown 0.8s ease-out; /* แอนิเมชันเลื่อนลงตอนโหลดหน้า */
+}
+
+/* แอนิเมชันเลื่อนลงสำหรับเฮดเดอร์ */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* เอฟเฟกต์เมื่อ hover เฮดเดอร์ */
+.main-header:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transform: translateY(2px);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Header Content 🌟 */
+/* สไตล์สำหรับเนื้อหาในเฮดเดอร์ */
+header {
+    position: relative;
+    text-align: center;
+    padding: 8rem 2rem;
+    background: var(--gradient);
+    color: white;
+    margin-bottom: 3rem;
+    animation: gradientFlow 10s ease infinite; /* แอนิเมชันไล่ระดับสี */
+}
+
+/* แอนิเมชันไล่ระดับสี */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* สไตล์สำหรับหัวข้อในเฮดเดอร์ */
+header h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    animation: popIn 1s ease-out;
+    transform: translateY(10px);
+}
+
+/* แอนิเมชันป๊อปอิน */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Logo Styles 🏷️ */
+/* สไตล์สำหรับโลโก้ */
+.logo {
+    margin-left: 2.5rem;
+    animation: wobble 2s ease-in-out infinite; /* แอนิเมชันส่าย */
+}
+
+/* แอนิเมชันส่ายโลโก้ */
+@keyframes wobble {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+/* สไตล์สำหรับรูปโลโก้ */
+.logo img {
+    height: 80px;
+    width: auto;
+    transition: var(--transition);
+}
+
+/* เอฟเฟกต์เมื่อ hover โลโก้ */
+.logo img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(1.2);
+    animation: spin 0.8s ease-in-out;
+}
+
+/* แอนิเมชันหมุน */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Navigation Styles 🧭 */
+/* สไตล์สำหรับเมนูนำทาง */
+.nav-menu {
+    display: flex;
+    gap: 3.5rem;
+    margin-right: 3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    align-items: center;
+    position: relative;
+    animation: slideIn 1s ease-out;
+    z-index: 1001;
+}
+
+/* แอนิเมชันเลื่อนเข้า */
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* สไตล์สำหรับลิงก์ในเมนู */
+.nav-menu a {
+    position: relative;
+    color: var(--dark-color);
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    transition: var(--transition);
+    border-radius: 8px;
+    background: transparent;
+}
+
+/* เส้นใต้เมื่อ hover */
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--gradient);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+/* สไตล์สำหรับเมนูแบบ dropdown */
+.nav-menu .dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+/* ลูกศรชี้ลงสำหรับ dropdown */
+.nav-menu .dropdown::after {
+    content: '▼';
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* หมุนลูกศรเมื่อ hover */
+.nav-menu .dropdown:hover::after {
+    transform: rotate(180deg);
+}
+
+/* เนื้อหาใน dropdown */
+.nav-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.98);
+    min-width: 220px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 12px;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    border: 2px solid rgba(255, 99, 71, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+/* แสดง dropdown เมื่อ hover */
+.nav-menu .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* แอนิเมชันเฟดอินสำหรับ dropdown */
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* สไตล์ลิงก์ใน dropdown */
+.nav-menu .dropdown-content a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: var(--dark-color);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+/* เอฟเฟกต์เมื่อ hover ลิงก์ใน dropdown */
+.nav-menu .dropdown-content a:hover {
+    background: rgba(255, 99, 71, 0.1);
+    color: var(--primary-color);
+    transform: translateX(10px);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* เอฟเฟกต์เมื่อ hover ลิงก์ในเมนู */
+.nav-menu a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 99, 71, 0.1);
+    transform: translateY(-2px);
+}
+
+/* แสดงเส้นใต้เมื่อ hover */
+.nav-menu a:hover::before {
+    width: 80%;
+    opacity: 1;
+}
+
+/* Restaurant Grid 🍽️ */
+/* สไตล์สำหรับกริดร้านอาหาร */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+    flex: 1;
+    align-items: stretch;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* แอนิเมชันเฟดอินจากด้านล่าง */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Restaurant Cards 🏪 */
+/* สไตล์สำหรับการ์ดร้านอาหาร */
+.restaurant-card {
+    background: linear-gradient(to bottom, #fff, #f8f8f8);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    min-height: 400px;
+    border: 2px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    animation: cardPop 0.5s ease-out;
+}
+
+/* แอนิเมชันป๊อปอินสำหรับการ์ด */
+@keyframes cardPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* สไตล์สำหรับรายละเอียดในการ์ด */
+.restaurant-card .restaurant-details {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* สไตล์สำหรับหัวข้อในการ์ด */
+.restaurant-card .restaurant-details h2 {
+    font-size: 1.4rem; /* ปรับขนาดหัวข้อให้เล็กลง */
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* สไตล์สำหรับข้อความรายละเอียด */
+.restaurant-card .cuisine,
+.restaurant-card .location,
+.restaurant-card .rating,
+.restaurant-card .price-range {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+}
+
+/* สไตล์สำหรับคำอธิบายร้านอาหาร */
+.restaurant-card .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.8rem 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #666;
+}
+
+/* ไอคอนร้านอาหาร */
+.restaurant-card .restaurant-details h2::before {
+    content: '🍽️';
+    margin-right: 8px;
+    animation: bounce 1s infinite;
+}
+
+/* ไอคอนเวลา */
+.restaurant-card .cuisine::before {
+    content: '⏰';
+    margin-right: 8px;
+    animation: swing 2s infinite;
+}
+
+/* แอนิเมชันแกว่ง */
+@keyframes swing {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* ไอคอนตำแหน่ง */
+.restaurant-card .location::before {
+    content: '📍';
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+/* แอนิเมชันเต้น */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ไอคอนคะแนน */
+.restaurant-card .rating::before {
+    content: '⭐';
+    margin-right: 8px;
+    animation: twinkle 1s infinite;
+}
+
+/* แอนิเมชันกระพริบ */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ไอคอนราคา */
+.restaurant-card .price-range::before {
+    content: '💰';
+    margin-right: 8px;
+    animation: shake 2s infinite;
+}
+
+/* แอนิเมชันสั่น */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* สไตล์ปุ่มในการ์ด */
+.restaurant-card .button {
+    background: var(--gradient);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+}
+
+/* เอฟเฟกต์เมื่อ hover ปุ่ม */
+.restaurant-card .button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+}
+
+/* แอนิเมชันเด้ง */
+@keyframes jello {
+    0%, 11.1%, 100% { transform: skewX(0deg) skewY(0deg); }
+    22.2% { transform: skewX(-12.5deg) skewY(-12.5deg); }
+    33.3% { transform: skewX(6.25deg) skewY(6.25deg); }
+    44.4% { transform: skewX(-3.125deg) skewY(-3.125deg); }
+    55.5% { transform: skewX(1.5625deg) skewY(1.5625deg); }
+    66.6% { transform: skewX(-0.78125deg) skewY(-0.78125deg); }
+    77.7% { transform: skewX(0.390625deg) skewY(0.390625deg); }
+    88.8% { transform: skewX(-0.1953125deg) skewY(-0.1953125deg); }
+}
+
+/* แก้ไขเอฟเฟกต์เมื่อ hover การ์ด */
+.restaurant-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    background: linear-gradient(to bottom, #fff, #fff5f3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ปุ่มดูเส้นทาง */
+.directions-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gradient);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.2);
+}
+
+/* เอฟเฟกต์เมื่อ hover ปุ่มดูเส้นทาง */
+.directions-link:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+    background: linear-gradient(45deg, var(--primary-color), var(--orange-color));
+    animation: rubberBand 1s;
+}
+
+/* แอนิเมชันยืดหด */
+@keyframes rubberBand {
+    0% { transform: scale(1); }
+    30% { transform: scaleX(1.25) scaleY(0.75); }
+    40% { transform: scaleX(0.75) scaleY(1.25); }
+    50% { transform: scaleX(1.15) scaleY(0.85); }
+    65% { transform: scaleX(0.95) scaleY(1.05); }
+    75% { transform: scaleX(1.05) scaleY(0.95); }
+    100% { transform: scale(1); }
+}
+
+/* ไอคอนในปุ่มดูเส้นทาง */
+.directions-link i {    
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+/* แอนิเมชันกระโดด */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* ข้อความในปุ่มดูเส้นทาง */
+.directions-link span {
+    font-size: 0.9rem;
+}
+
+/* Footer Styles 👣 */
+/* สไตล์สำหรับส่วนท้ายเว็บ */
+.footer {
+    background: linear-gradient(135deg, #6B4E71, #4A4453);
+    color: var(--light-color);
+    padding: 3rem 2rem;
+    margin-top: auto;
+    border-top: 3px solid #9B8B9F;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(74,68,83,0.2);
+}
+
+/* เส้นคั่นด้านบนของ footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4C5D8, transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* เนื้อหาใน footer */
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+}
+
+/* ส่วนต่างๆ ใน footer */
+.footer-section {
+    padding: 1rem;
+    background: rgba(212,197,216,0.08);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+/* เอฟเฟกต์เมื่อ hover ส่วนใน footer */
+.footer-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(228, 220, 231, 0.15);
+}
+
+/* หัวข้อในส่วน footer */
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* เส้นใต้หัวข้อ footer */
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #ffffff;
+}
+
+/* ข้อความในส่วน footer */
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* ลิงก์ใน footer */
+.footer-links {
+    list-style: none;
+}
+
+/* รายการลิงก์ใน footer */
+.footer-links li {
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+/* สไตล์ลิงก์ใน footer */
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+/* เอฟเฟกต์เมื่อ hover ลิงก์ใน footer */
+.footer-links a:hover {
+    color: #ffffff;
+    padding-left: 0.8rem;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+/* ส่วนล่างสุดของ footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 1rem;
+    position: relative;
+}
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 9px;  
+    color: #ffffff;
+}
+
+/* แอนิเมชันแสงวาบ */
+@keyframes shimmer {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+/* Responsive Design 📱 */
+/* การแสดงผลบนอุปกรณ์ขนาดเล็ก */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* การแสดงผลบนอุปกรณ์ขนาดกลาง */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* การแสดงผลบนอุปกรณ์ขนาดใหญ่ */
+@media (min-width: 1201px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+}
+
+/* Print Styles 🖨️ */
+/* สไตล์สำหรับการพิมพ์ */
+@media print {
+    .main-header,
+    .nav-menu,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        background: none;
+        color: rgb(131, 131, 131);
+    }
+    
+    .restaurant-card {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+}
+
+/* สไตล์สำหรับ footer */
+footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+/* แก้ไขส่วน circular-icon */
+.circular-icon {
+    position: relative;
+    z-index: 1; /* ลด z-index ลง */
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* เพิ่มเอฟเฟกต์ Parallax สำหรับพื้นหลัง */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--gradient);
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+}
+
+/* เพิ่มแอนิเมชันเรืองแสงสำหรับหัวข้อ */
+h1, h2 {
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255,255,255,0.8),
+                     0 0 30px var(--primary-color);
+    }
+}
+
+/* เพิ่มเอฟเฟกต์ hover 3D สำหรับการ์ด */
+.restaurant-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.restaurant-card:hover {
+    transform: rotateX(5deg) rotateY(5deg) translateY(-12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* เพิ่มเอฟเฟกต์ Loading Skeleton */
+.skeleton-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* เพิ่มเอฟเฟกต์ Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    overflow-y: overlay;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+/* สไตล์ custom scrollbar สำหรับ webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* เพิ่ม smooth scroll behavior สำหรับทุก element */
+* {
+    scroll-margin-top: 100px;
+    scroll-behavior: smooth;
+}
+
+/* ปรับปรุง animation timing function สำหรับการเลื่อน */
+.smooth-scroll {
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+/* เพิ่มปุ่ม Back to Top แบบมีแอนิเมชัน */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--gradient);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

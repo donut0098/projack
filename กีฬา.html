@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำกีฬาฟุตบอล ⚽️</title>
+    <link rel="icon " href="cafe/ภ.jpg" style="height: auto; width: auto;" sizes="18x18">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scrict.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: transparent; /* Make background fully transparent */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: transparent; /* Make header background fully transparent */
+            color: gray;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5); /* Adjust shadow for transparency */
+        }
+        nav {
+            background-color: transparent; /* Make nav background fully transparent */
+            color: white;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        main {
+            padding: 80px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center; /* Center the content */
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: transparent; /* Make section background fully transparent */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: var(--primary-color);
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: transparent; /* Make footer background fully transparent */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: gray;
+        }
+        
+        .container {
+            max-width: 800px; /* Increased max-width for a more spacious layout */
+            margin: 40px auto; /* Centered the container with auto margins */
+            padding: 40px; /* Reduced padding for a cleaner look */
+            gap: 20px; /* Adjusted gap for better spacing */
+            background-color: rgba(255, 255, 255, 0.9); /* Added a subtle background color for contrast */
+            border-radius: 12px; /* Rounded corners for a softer appearance */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+        }
+
+        .filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .filter input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(204, 204, 204, 0.8); /* Make border semi-transparent */
+            border-radius: 8px;
+        }
+        .card {
+            background: transparent; /* Make card background fully transparent */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .card-content p {
+            margin: 0 0 10px;
+            color: rgba(102, 102, 102, 0.8); /* Make text semi-transparent */
+            line-height: 1.6;
+        }
+        .card-content .cta {
+            margin-top: 10px;
+        }
+        .card-content .cta a {
+            text-decoration: none;
+            color: #fff;
+            background-color: rgba(120, 115, 114, 0.8); /* Make button background semi-transparent */
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .card-content .cta a:hover {
+            background-color: rgba(255, 255, 255, 0.8); /* Make hover background semi-transparent */
+        }
+        
+        .section a { 
+            padding-left: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" alt="โลโก้เว็บไซต์">
+        </div>
+        <nav class="nav-menu">
+            <div class="dropdown">
+                <a href="หน้าเเรก.html" class="dropbtn" data-active="false">หน้าแรก 🏠</a>
+                <div class="dropdown-content">
+                    <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                    <a href="index.html" class="button-item">หน้ารายการ 📋</a>
+                    <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ 🍽️</a>
+                </div>   
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่เเนะนำ 📍</a>
+                <div class="dropdown-content">
+                    <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่ ☕️</a>
+                    <a href="โรงเเรม.html" class="button-item">โรงแรม 🏨</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว 🌍</a>
+                <div class="dropdown-content">      
+                    <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#football">ฟุตบอล ⚽️</a></li>
+            <li><a href="#team">บุรีรัมย์ ยูไนเต็ด 🏆</a></li>
+            <li><a href="#contact">ติดต่อเรา 📞</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="football">
+            <h2>สนามช้างอารีน่า ⚽️</h2>
+            <p>สนามช้างอารีน่า เป็นสนามฟุตบอลที่ตั้งอยู่ในจังหวัดบุรีรัมย์ ประเทศไทย เป็นสนามเหย้าของทีมบุรีรัมย์ ยูไนเต็ด ซึ่งมีความจุประมาณ 32,600 ที่นั่ง และได้รับการออกแบบให้มีมาตรฐานระดับสากล...</p>
+        </section>
+        <section id="team">
+            <h2>ทีมบุรีรัมย์ ยูไนเต็ด 🏆</h2>
+            <p>บุรีรัมย์ ยูไนเต็ด เป็นหนึ่งในทีมฟุตบอลชั้นนำของประเทศไทย ที่มีผลงานโดดเด่นในลีกและการแข่งขันระดับนานาชาติ โดยทีมนี้ได้รับการยกย่องว่าเป็นทีมที่ประสบความสำเร็จมากที่สุดในประวัติศาสตร์ฟุตบอลไทย...</p>
+            <div style="text-align: center;"> <!-- Centering the image -->
+                <img src="cafe/ภ.jpg" alt="ทีมบุรีรัมย์ ยูไนเต็ด" style="max-width: 100%; height: auto; border-radius: 8px;">
+            </div>
+        </section>
+        <section id="contact">
+            <h2>ติดต่อเรา 📞</h2>
+            <p>หากคุณต้องการทราบข้อมูลเพิ่มเติม สามารถติดต่อเราได้ที่:</p>
+            <ul>
+                <a>อีเมล: <a href="mailto:info@footballthai.com">info@footballthai.com</a>
+                <br>
+                <a>โทรศัพท์: <a href="tel:021234567">02-123-4567</a>
+            </ul>
+        </section>
+</body>
+</html> 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เเนะนำอาหารอีสาน</title>
+    <link rel="icon" href="img/90.png" style="height: auto; width: auto;" sizes="16x16">
+    <script src="scrict.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("img/09.png");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            text-align: left;
+        }
+
+        .title {
+            font-size: 3em;
+            line-height: 1.2;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .description {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            animation: float 2s ease-in-out infinite;
+            
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            35% { transform: translateY(-20px); }
+            75% { transform: translateY(0px); }
+        }
+
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+        }
+
+        .home-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay">
+        <div class="content">
+            <div class="title">Me<br>Nu<br>northeast</div>
+            <p class="description">
+                อาหารอีสานเป็นอาหารที่มีเอกลักษณ์โดดเด่น ด้วยรสชาติจัดจ้าน ทั้งเผ็ด เปรี้ยว เค็ม 
+                และหวาน ผสมผสานวัตถุดิบพื้นบ้านที่หาได้ในท้องถิ่น สะท้อนวิถีชีวิตและวัฒนธรรมการกินของชาวอีสานได้อย่างชัดเจน
+            </p>
+            <div class="gallery">
+                <img src="หน้าเเรก/ๅ.jpeg" class="button">
+                <img src="หน้าเเรก/2.jpg" class="button">
+                <img src="หน้าเเรก/3.jpg" class="button">
+                <img src="หน้าเเรก/4.jpg"  class="button" >
+    </div>
+    <a href="index.html" class="home-button">หน้ารายการ</a>
+</body>
+</html>

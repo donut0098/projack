@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ร้านตำระยำ/1.png" sizes="16x16" style="height: auto; width: auto;">
+    <link rel="stylesheet" href="styles2 copy.css">
+    <script src="scrict.js"></script>
+    <title>ร้านอาหารเเนะนำ</title>
+    <style>
+         .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .restaurant-card {
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .restaurant-image {
+            position: relative;
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .restaurant-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .restaurant-details {
+            padding: 20px;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        }
+        
+        .restaurant-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+            border-bottom: 2px solid #f5a623;
+            padding-bottom: 8px;
+        }
+        
+        .rating {
+            color: #f5a623;
+            margin: 12px 0;
+            font-size: 16px;
+        }
+        
+        .review-count {
+            color: #666;
+            font-size: 15px;
+            font-style: italic;
+        }
+        
+        .price-range {
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(to right, #f5a623, #f8f9fa);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .additional-info {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .info-block {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #f5a623, #f8f9fa);
+        }
+
+        .info-block h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 4px solid #f5a623;
+            padding-left: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .info-block p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        .info-block ul li {
+            margin-bottom: 15px;
+            color: #555;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .info-block ul li:before {
+            content: "→";
+            color: #f5a623;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .info-block ul li:hover:before {
+            transform: translateX(5px);
+        }
+
+        .info-block:hover h2 {
+            color: #f5a623;
+            transition: color 0.3s ease;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- ส่วนหัว -->
+    <div class="circular-icon">
+        <img src="ร้านยายนอม/หน้าปกอีสาน.jpg" alt="img" style="width: 100%; height: auto;">
+    </div>
+
+    <!-- เมนูนำทาง -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" sizes="25x25">  
+        </div>
+        <nav class="nav-menu">
+            <!-- เมนูหน้าแรก -->
+            <div class="dropdown">
+                <a href="หน้าเเรก.html" class="dropbtn" data-active="false">หน้าแรก</a>
+                <div class="dropdown-content">
+                    <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                    <a href="index.html" class="button-item">หน้ารายการ</a>
+                    <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ</a>
+                    
+                </div>  
+            </div>
+            <!-- เมนูโรงแรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่เเนะนำ 📍</a>
+                <div class="dropdown-content">
+                    <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่ ☕️</a>
+                    <a href="โรงเเรม.html" class="button-item">โรงแรม 🏨</a>
+                </div>
+            </div>
+            <!-- เมนูกิจกรรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว</a>
+                <div class="dropdown-content">      
+                    <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="breadcrumbs">   
+
+    <!-- หัวข้อหลัก -->
+    <header>
+        <h1>ร้านอาหารเเนะนำในเมืองบุรีรัมย์</h1>
+        <p class="sub-header">ร้านอาหารอีสานเเนะนำในเมืองบุรีรัมย์</p>
+    </header>
+
+    <!-- รายการร้านอาหาร -->
+    <section class="restaurant-grid">
+        <!-- ร้านที่ 1 -->
+        <div class="restaurant-card">
+            <img src="ร้านยายนอม/ร้านยายนอม.jpg" alt="ร้านส้มตำยายนอม" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ร้านส้มตำยายนอม</h2>
+                <p class="cuisine">เวลาทำการ:<br> จันทร์ - เสาร์ 10:00 - 20:00 <br>อาทิตย์ปิด</p>
+                <p class="location">ตำแหน่ง: ถนนจิระ ซอย 2 ต.ในเมือง อ.เมืองบุรีรัมย์</p>
+                <p class="rating">★★★★ <span class="review-count">4.4 (89 รีวิว)</span></p>
+                <p class="price-range">50 - 150 บาท</p>
+                <div class="directions">
+                    <a href="https://www.google.com/maps?q=14.99728544626794, 103.09517069380301" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    
+                    <img src="img/fff.png" alt="QR Code" class="qr-code">
+                </div>
+                <a href="ร้านยายนอ.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+        
+
+        <!-- ร้านที่ 2 -->
+        <div class="restaurant-card">
+            <img src="ร้านเป็ดย่างคูเมือง/หน้าปก.jpg " alt="เป็ดย่างคูเมือง" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ร้านเป็ดย่างคูเมือง</h2>
+                <p class="cuisine">เวลาทำการ:<br>อังคาร - อาทิตย์ 10:30 - 16:30 <br>วันจันทร์ปิด</p>
+                <p class="location">ตำแหน่ง: 444/4 ถ.จิระ ต.ในเมือง อ.เมืองบุรีรัมย์ จ.บุรีรัมย์ 31000</p>
+                <p class="rating">★★★★★ <span class="review-count">4.2 (302 รีวิว)</span></p>
+                <p class="price-range"> 150-300 บาท</p>
+                <p class="directions">
+                    <a href="https://www.google.com/maps?q=14.978261628177213, 103.07185024056602" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    <img src="img/ccc.png" alt="QR Code" class="qr-code">
+                </p>
+                <a href="ร้านเป็ดย่างคูเมือง.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+        
+        <!-- ร้านที่ 3 -->
+        <div class="restaurant-card">
+            <img src="ตำกระเทย/หน้าร้าน.JPG" alt="ร้านตำกระเทย" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ร้านตำกระเทย</h2>
+                <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 10:00 - 21:00<br>เปิดทุกวัน</p>
+                <p class="location">ตำแหน่ง: 444 ถนน จิระ ตำบลในเมือง อำเภอเมืองบุรีรัมย์ บุรีรัมย์ 31000</p>
+                <p class="rating">★★★★★ <span class="review-count">4.7 (1,066 รีวิว)</span></p>
+                <p class="price-range"> 100 - 500 บาท</p>
+                <p class="directions">
+                    <a href="https://www.google.com/maps?q=14.987705, 103.104068" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    <img src="img/ตำ.png" alt="QR Code" class="qr-code">
+                </p>
+                <a href="ร้านตำกระเทย.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 4 -->
+        <div class="restaurant-card">
+            <img src="img/5.jpg" alt="ร้านส้มตำยายนอม" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ครัวอีสาน 5 ดาว</h2>
+                <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 10:00 - 21.00 <br>เปิดทุกวัน</p>
+                <p class="location">ตำแหน่ง: เมืองบุรีรัมย์</p>
+                <p class="rating">★★★★ <span class="review-count">4.1 (106 รีวิว)</span></p>
+                <p class="price-range">100 - 200 บาท</p>
+                <p class="directions">
+                    <a href="https://www.google.com/maps?q=15.00023, 103.0957" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    <img src="img/453.png" alt="QR Code" class="qr-code">
+                </p>
+                <a href="ครัวอีสาน5ดาว.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 5 -->
+        <div class="restaurant-card">
+            <img src="ครัวสองพี่น้องไดโนเสาร์/หน้าปก.jpg" alt="ครัวสองพี่น้องไดโนเสาร์" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ครัวสองพี่น้อง</h2>
+                <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 07.00 - 19:00<br>เปิดทุกวัน</p>
+                <p class="location">ตำแหน่ง: เมืองบุรีรัมย์</p>
+                <p class="rating">★★★★★ <span class="review-count">4.3 (573 รีวิว)</span></p>
+                <p class="price-range">100 - 200 บาท</p>
+                <p class="directions">
+                    <a href="https://www.google.com/maps?q=14.917546006976181, 103.07869793862643" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    <img src="img/ยยย.png" alt="QR Code" class="qr-code">
+                </p>
+                <a href="สองพี่น้องไดโนเสาร์.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 6 -->
+        <div class="restaurant-card">
+            <img src="ครัวอีสาน/ครัวอีสาน.jpg" alt="ครัวอีสานบุรีรัมย์" class="restaurant-image">
+            <div class="restaurant-details">
+                <h2>ครัวอีสานบุรีรัมย์</h2>
+                <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 09.00 - 17.00<br>เปิดทุกวัน</p>
+                <p class="location">ตำแหน่ง: 33/9, อนุวรรตน์is ในเมือง เมืองบุรีรัมย์ บุรีรัมย์</p>
+                <p class="rating">★★★★ <span class="review-count">3.9 (36) รีวิว</span></p>
+                <p class="price-range">100 - 250 บาท</p>
+                <p class="directions">
+                    <a href="https://www.google.com/maps?q=14.99493719928488, 103.11888047116393" target="_blank" class="directions-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ดูเส้นทาง</span>
+                    </a>
+                    <img src="img/kko.png" alt="QR Code" class="qr-code">
+                </p>
+                <a href="ครัวอีสาน.html" class="button">เพิ่มเติม</a>
+            </div>
+        </div>
+    </div>
+
+     <!-- ร้านที่ 7 -->
+     <div class="restaurant-card">
+        <img src="ร้านไก่ย่างสีดา/หน้าร้าน.jpg" alt="ครัวอีสานบุรีรัมย์" class="restaurant-image">
+        <div class="restaurant-details">
+            <h2>ร้านไก่ย่างสีดา</h2>
+            <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 09.00 - 21.00<br>เปิดทุกวัน</p>
+            <p class="location">ตำแหน่ง: 33/9 ถนน อนุวรรตน์ ตำบล ในเมือง อำเภอเมืองบุรีรัมย์ บุรีรัมย์ 31000</p>
+            <p class="rating">★★★★ <span class="review-count">4.2 (502) รีวิว</span></p>
+            <p class="price-range">200 - 450 บาท</p>
+            <p class="directions">
+                <a href="https://www.google.com/maps?q=14.997000283341434, 103.11857205287593" target="_blank" class="directions-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>ดูเส้นทาง</span>
+                </a>
+                <img src="ร้านไก่ย่างสีดา/ร้านสีดา.png" alt="QR Code" class="qr-code">
+            </p>
+            <a href="ร้านไก่ย่างสีดา.html" class="button">เพิ่มเติม</a>
+        </div>
+    </div>
+</div>
+
+<!-- ร้านที่ 8 -->
+<div class="restaurant-card">
+    <img src="1000menu/หน้าร้าน.jpg" alt="ครัวอีสานบุรีรัมย์" class="restaurant-image">
+    <div class="restaurant-details">
+        <h2>ร้านส้มตำ 1000 เมนู </h2>
+        <p class="cuisine">เวลาทำการ:<br> จันทร์ - อาทิตย์ 10.00 - 18.00<br>เปิดทุกวัน</p>
+        <p class="location"> ถนน 2445 ตรง ข้าง มหาวิทยาลัย ราชภัฏ ใน เมือง เมือง บุรีรัมย์ บุรีรัมย์ 31000</p>
+        <p class="rating">★★★★ <span class="review-count">4.5 (20) รีวิว</span></p>
+        <p class="price-range">100 - 200  บาท</p>
+        <p class="directions">
+            <a href="https://www.google.com/maps?q=14.988152050389763, 103.10341392220981" target="_blank" class="directions-link">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>ดูเส้นทาง</span>
+            </a>
+            <img src="1000menu/qr.png" alt="QR Code" class="qr-code">
+        </p>
+        <a href="ส้มตำ 1000 เมนุ.html" class="button">เพิ่มเติม</a>
+    </div>
+</div>
+
+
+</section>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3 class="footer-heading">เกี่ยวกับเรา</h3>
+            <p class="footer-description">เราคือผู้รวบรวมร้านอาหารอีสานชั้นเลิศในจังหวัดบุรีรัมย์ คัดสรรเฉพาะร้านที่รักษารสชาติดั้งเดิมแท้ๆ ของภาคอีสาน เพื่อให้คุณได้สัมผัสประสบการณ์อาหารที่แท้จริงและน่าจดจำ</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@buriramfoodguide.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0903258340</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>บุรีรัมย์, ประเทศไทย</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section social">
+            <h3 class="footer-heading">📱 ติดตามอัพเดทล่าสุด ✨</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Donutpramot/" class="social-link" target="_blank">
+                    <i class="fab fa-facebook-square" style="font-size: 25px;"></i>
+                    <span style="font-size: 18px; margin-left: 10px;"><strong>Facebook</strong> 👍</span>
+                </a>
+                <br>
+                <br>
+                <a href="https://www.instagram.com/" class="social-link">
+                    <i class="fab fa-instagram" style="font-size: 25px;"></i>
+                    <span style="font-size: 18px; margin-left: 10px;"><strong>Instagram</strong> 📸</span>
+                </a>
+                <br>
+                <br>
+                <a href="https://www.tiktok.com/tiktokstudio/upload?lang=th-TH" class="social-link">
+                    <i class="fab fa-tiktok" style="font-size: 25px;"></i>
+                    <span style="font-size: 18px; margin-left: 10px;"><strong>TikTok</strong> 🎵</span>
+                </a>
+                <br>
+        
+            </div>
+        </div>
+
+        <div class="footer-section newsletter">
+            <h3 class="footer-heading">📫 รับข่าวสารและโปรโมชั่น 🎉</h3>
+            <p class="newsletter-description">สมัครรับจดหมายข่าวเพื่อไม่พลาดร้านเด็ด โปรโมชั่นพิเศษ และข่าวสารใหม่ๆ 🔥</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="กรอกอีเมลของคุณที่นี่ ✉️">
+                <button type="submit">สมัครเลย ✨</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p class="copyright">© 2024 Buriram Food Guide | ร้านอาหารอีสานในบุรีรัมย์ | All Rights Reserved 🍜</p>
+    </div>
+</footer>
+</body>
+</html>

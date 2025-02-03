@@ -1,0 +1,486 @@
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ร้านเเม่ตุ้ย/หน้าร้าน.jpg" style="height: auto; width: auto;" sizes="16x16">
+    <link rel="stylesheet" href="styles2 copy.css"
+    <script src="script.js"></script>
+    <title>ร้านแม่ตุ้ยแจ่วฮ้อน</title>
+    <style>
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .restaurant-card {
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: white;
+            transition: transform 0.2s;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .restaurant-image { 
+            position: relative;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .restaurant-details {
+            padding: 15px;
+        }
+        
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .rating {
+            color: #f5a623;
+            margin: 8px 0;
+        }
+        
+        .review-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .price-range {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .additional-info {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-block {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-block h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .info-block p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-block ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+    </style>
+
+    <!-- เมนูนำทาง -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" alt="โลโก้เว็บไซต์">
+        </div>
+        <nav class="nav-menu">
+            <!-- เมนูหน้าแรก -->
+            <div class="dropdown">
+                <a href="หน้าเเรก.html" class="dropbtn" data-active="false">หน้าแรก</a>
+                <div class="dropdown-content">
+                    <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                    <a href="index.html" class="button-item">หน้ารายการ</a>
+                    <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ</a>
+                  
+                </div>  
+            </div>
+            <!-- เมนูโรงแรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่เเนะนำ 📍</a>
+                <div class="dropdown-content">
+                    <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่ ☕️</a>
+                    <a href="โรงเเรม.html" class="button-item">โรงแรม 🏨</a>
+                </div>
+            </div>
+            <!-- เมนูกิจกรรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว</a>
+                <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="breadcrumbs">
+
+    <!-- หัวข้อหลัก -->
+    <header>
+        <h1>ร้านแม่ตุ้ยแจ่วฮ้อน</h1>
+        <p class="sub-header">รายการร้านอาการเเนะนำ</p>
+    </header>
+
+    <!-- รายการร้านอาหาร -->
+    <section class="restaurant-grid">
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านตำระยำ/ยำปลาหมึก.jpeg" alt="ตำถั่ว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ยำปลาหมึก</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านเเม่ตุ้ย/ตำถั่ว.jpg" alt="ตำถั่ว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำถั่ว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านเเม่ตุ้ย/ตำป่าไจ่เค้ม.jpg" alt="ตำถั่ว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำป่าไข่เค้ม</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านตำระยำ/ยำหมูยอ.jpeg" alt="ตำถั่ว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ยำหมูยอ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ร้านที่ 2 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านตำระยำ/ยำหอยนางลม.jpg" alt="ตำไทย" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ยำหอยนางลม</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านตำระยำ/ลาบขั้ว.jpeg" alt="ตำถั่ว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ลาบขั้ว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 3 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ปลาทอดกระเทียมเจียว.jpg" alt="ปลาทอดกระเทียมเจียว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ปลาทอดกระเทียมเจียว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 4 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ผัดจังโก้เนื้อ.jpg" alt="ผัดจังโก้เนื้อ" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ผัดจังโก้เนื้อ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ร้านที่ 5 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/พัดเผ็ดเนื้อเป็ด.jpg" alt="ผัดเผ็ดเนื้อเป็ด" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ผัดเผ็ดเนื้อเป็ด</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 6 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ลาบก้อยเนื้อ.jpg" alt="ลาบก้อยเนื้อ" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ลาบก้อยเนื้อ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ร้านที่ 7 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ลาบตับ.jpg" alt="ลาบตับ" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ลาบตับ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 8 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ลาบหมูสับ.jpg" alt="ลาบหมูสับ" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ลาบหมูสับ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 9 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/ลาบเป็ด.jpg" alt="ลาบเป็ด" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ลาบเป็ด</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ร้านที่ 10 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวสองพี่น้องไดโนเสาร์/หมูเเดดเดียว.jpg" alt="หมูเเดดเดียว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">หมูเเดดเดียว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ร้านเเม่ตุ้ย/คอหมูย่า.jpg" alt="หมูเเดดเดียว" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">หมูเเดดเดียว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ -  อาทิตย์ 10.00 - 22.00 <br>เปิดทุกวัน</p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- เพิ่มส่วนข้อมูลเพิ่มเติม -->
+    <section class="additional-info">
+        <div class="container">
+            <div class="info-block">
+                <h2>เกี่ยวกับร้านแม่ตุ้ยแจ่วฮ้อน</h2>
+                <p>ร้านอาหารอีสานชื่อดังของบุรีรัมย์ เปิดมานานกว่า 20 ปี เป็นที่รู้จักในเรื่องแจ่วฮ้อนรสเด็ด และอาหารอีสานแท้ๆ รสชาติจัดจ้าน เมนูแนะนำ ได้แก่ แจ่วฮ้อน ต้มยำ ส้มตำ ลาบ และอื่นๆ อีกมากมาย</p>
+            </div>
+
+            <div class="info-block">
+                <h2>บริการของเรา</h2>
+                <ul>
+                    <li>🍽️ รับจัดเลี้ยงนอกสถานที่</li>
+                    <li>🛵 บริการส่งอาหารผ่าน Grab, Food Panda</li>
+                    <li>🅿️ ที่จอดรถสะดวก</li>
+                    <li>👨‍👩‍👦 เหมาะสำหรับครอบครัวและกลุ่มเพื่อน</li>
+                    <li>💳 รับชำระผ่านบัตรเครดิต/เดบิต และ Mobile Banking</li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h2>ติดต่อเรา</h2>
+                <p>📞 โทร: 044-611-234</p>
+                <p>📍 ที่อยู่: 123 ถ.จิระ ต.ในเมือง อ.เมือง จ.บุรีรัมย์ 31000</p>
+                <p>⏰ เวลาทำการ: ทุกวัน 10:00 - 22:00 น.</p>
+                <p>🌐 Facebook: <a href="https://www.facebook.com/p/%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B8%B8%E0%B9%8B%E0%B8%A2-%E0%B9%81%E0%B8%88%E0%B9%88%E0%B8%A7%E0%B8%AE%E0%B9%89%E0%B8%AD%E0%B8%99-100036493376174/">ร้านแม่ตุ้ยแจ่วฮ้อน</a></p>
+                <p>🗺️ แผนที่: <a href="https://www.google.com/maps?q=15.003757874664272, 103.1125201428202">ดูเส้นทาง</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

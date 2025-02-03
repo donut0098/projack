@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูแนะนำ - ร้านส้มตำยายนอม</title>
+    <link rel="icon" href="img/เเนะนำ.png" style="height: auto; width: auto; " size="16x16">
+    <link rel="stylesheet" href="styles2 copy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 40px;   
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 23px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .menu-card {
+            flex: 1 1 calc(25% - 40px); /* Reduced width */
+            max-width: calc(25% - 40px); /* Reduced width */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .menu-image {
+            transform: scale(1.05);
+        }
+
+        .menu-details {
+            padding: 15px;
+        }
+
+        .menu-name {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .menu-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e44d26;
+            margin-bottom: 15px;
+            background-color: #fff5f5;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .menu-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .menu-tag {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-card {
+                flex: 1 1 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ส่วนหัว -->
+    <div class="circular-icon">
+        <img src="ร้านยายนอม/หน้าปกอีสาน.jpg" alt="ภาพหน้าปก" style="width: 100%; height: auto;">
+    </div>
+
+    <!-- เมนูนำทาง -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" sizes="25x25">  
+        </div>
+        <nav class="nav-menu">
+            <!-- เมนูหน้าแรก -->
+            <div class="dropdown">
+                <a href="หน้าเเรก.html" class="dropbtn" data-active="false">หน้าแรก</a>
+                <div class="dropdown-content">
+                    <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                    <a href="index.html" class="button-item">หน้ารายการ</a>
+                    <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ</a>
+                    <a href="เมนูเเนะนำ.html" class="button-item">เมนูเเนะนำ</a>
+                </div>  
+            </div>
+            <!-- เมนูโรงแรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่เเนะนำ</a>
+                <div class="dropdown-content">
+                    <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่</a>
+                    <a href="#" class="button-item">โรงแรมใจกลางเมือง</a>
+                </div>
+            </div>
+            <!-- เมนูกิจกรรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว</a>
+                <div class="dropdown-content">      
+                    <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="breadcrumbs"></section>
+
+    <!-- หัวข้อหลัก -->
+    <header>
+        <h1>ร้านอาหารเเนะนำในเมืองบุรีรัมย์</h1>
+        <p class="sub-header">ร้านอาหารอีสานเเนะนำในเมืองบุรีรัมย์</p>
+    </header>
+
+    <section class="menu-grid">
+        <!-- เมนูตัวอย่าง -->
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ส้มตำไทย" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ส้มตำไทย</h2>
+                <p class="menu-price">฿50</p>
+                <p class="menu-description">ส้มตำรสชาติกลมกล่อม เผ็ดกำลังดี เหมาะสำหรับทุกคนในครอบครัว</p>
+                <span class="menu-tag">แนะนำ</span>
+                <span class="menu-tag">เผ็ดน้อย</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ไก่ย่าง" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ไก่ย่าง</h2>
+                <p class="menu-price">฿120</p>
+                <p class="menu-description">ไก่ย่างเนื้อนุ่ม หนังกรอบ เสิร์ฟพร้อมน้ำจิ้มแจ่วสุดแซ่บ</p>
+                <span class="menu-tag">ขายดี</span>
+                <span class="menu-tag">อร่อย</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ลาบหมู" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ลาบหมู</h2>
+                <p class="menu-price">฿70</p>
+                <p class="menu-description">ลาบหมูสูตรดั้งเดิม รสจัดจ้าน หอมข้าวคั่ว</p>
+                <span class="menu-tag">เผ็ดมาก</span>
+                <span class="menu-tag">สมุนไพร</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ลาบหมู" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ลาบหมู</h2>    
+                <p class="menu-price">฿70</p>
+                <p class="menu-description">ลาบหมูสูตรดั้งเดิม รสจัดจ้าน หอมข้าวคั่ว</p>
+                <span class="menu-tag">เผ็ดมาก</span>
+                <span class="menu-tag">สมุนไพร</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ลาบหมู" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ลาบหมู</h2>    
+                <p class="menu-price">฿70</p>
+                <p class="menu-description">ลาบหมูสูตรดั้งเดิม รสจัดจ้าน หอมข้าวคั่ว</p>
+                <span class="menu-tag">เผ็ดมาก</span>
+                <span class="menu-tag">สมุนไพร</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ลาบหมู" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ลาบหมู</h2>    
+                <p class="menu-price">฿70</p>
+                <p class="menu-description">ลาบหมูสูตรดั้งเดิม รสจัดจ้าน หอมข้าวคั่ว</p>
+                <span class="menu-tag">เผ็ดมาก</span>
+                <span class="menu-tag">สมุนไพร</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ส้มตำ" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ส้มตำ</h2>
+                <p class="menu-price">฿50</p>
+                <p class="menu-description">ส้มตำรสแซ่บ เปรี้ยวหวานกลมกล่อม</p>
+                <span class="menu-tag">เผ็ด</span>
+                <span class="menu-tag">สดใหม่</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ข้าวเหนียว" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ข้าวเหนียว</h2>
+                <p class="menu-price">฿20</p>
+                <p class="menu-description">ข้าวเหนียวหอมมะลิ นุ่ม</p>
+                <span class="menu-tag">อร่อย</span>
+                <span class="menu-tag">ข้าว</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ไก่ย่าง" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ไก่ย่าง</h2>
+                <p class="menu-price">฿80</p>
+                <p class="menu-description">ไก่ย่างเนื้อนุ่ม หนังกรอบ</p>
+                <span class="menu-tag">อร่อย</span>
+                <span class="menu-tag">ย่าง</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="น้ำตกหมู" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">น้ำตกหมู</h2>
+                <p class="menu-price">฿90</p>
+                <p class="menu-description">น้ำตกหมูรสจัดจ้าน</p>
+                <span class="menu-tag">เผ็ด</span>
+                <span class="menu-tag">อร่อย</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ต้มแซ่บ" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ต้มแซ่บ</h2>
+                <p class="menu-price">฿70</p>
+                <p class="menu-description">ต้มแซ่บรสจัดจ้าน</p>
+                <span class="menu-tag">เผ็ด</span>
+                <span class="menu-tag">ร้อน</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ปลาร้าส้มตำ" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ปลาร้าส้มตำ</h2>
+                <p class="menu-price">฿60</p>
+                <p class="menu-description">ปลาร้าส้มตำรสเด็ด</p>
+                <span class="menu-tag">อร่อย</span>
+                <span class="menu-tag">เผ็ด</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ขนมจีน" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ขนมจีน</h2>
+                <p class="menu-price">฿50</p>
+                <p class="menu-description">ขนมจีนเสิร์ฟพร้อมน้ำยารสเด็ด</p>
+                <span class="menu-tag">อร่อย</span>
+                <span class="menu-tag">สดใหม่</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ไข่เจียว" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ไข่เจียว</h2>
+                <p class="menu-price">฿30</p>
+                <p class="menu-description">ไข่เจียวกรอบนอกนุ่มใน</p>
+                <span class="menu-tag">อร่อย</span>
+                <span class="menu-tag">ไข่</span>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="ร้านตำระยำ/1.png" alt="ยำวุ้นเส้น" class="menu-image">
+            <div class="menu-details">
+                <h2 class="menu-name">ยำวุ้นเส้น</h2>
+                <p class="menu-price">฿60</p>
+                <p class="menu-description">ยำวุ้นเส้นรสแซ่บ</p>
+                <span class="menu-tag">เผ็ด</span>
+                <span class="menu-tag">สดใหม่</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 เเนะนำอาหารอีสาน. สงวนลิขสิทธิ์ | โทร: 0903258340 | Line: @promot sanrum</p>
+    </footer>
+</body>
+</html>

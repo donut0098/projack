@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการโรงแรม 🏨</title>
+    <link rel="icon" href="โรงเเรม/หน้าเเกร.png" style="height: auto; width: auto; " size="16x16;">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scrict.js"></script>
+    <style>
+      
+        header h1 {
+            margin: 0; /* Removed excessive margin */
+            font-size: 2.5em; /* Increased font size for better visibility */
+            color: #ffffff; /* Changed color for better contrast */
+        }
+        .header {
+            color: #e6a50d;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 20px 0; /* Adjusted margin for better spacing */
+        }
+        
+        .container {
+            max-width: 650px;
+            margin: 60px auto;
+            padding: 65px;
+            gap: 10px; /* Increased gap by 20% from 60px to 72px */
+            
+        }
+
+        .filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .filter input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .card-content p {
+            margin: 0 0 10px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .card-content .cta {
+            margin-top: 10px;
+        }
+        .card-content .cta a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff7f50;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .card-content .cta a:hover {
+            background-color: #e0673e;
+        }
+    </style>
+</head>
+<!-- ส่วนหัว -->
+<div class="circular-icon">
+    <img src="ร้านยายนอม/หน้าปกอีสาน.jpg" alt="img" style="width: 100%; height: auto;">
+</div>
+
+<!-- เมนูนำทาง -->
+<header class="main-header">
+    <div class="logo">
+        <img src="img/logo.png" sizes="25x25">
+    </div>
+    <nav class="nav-menu">
+        <!-- เมนูหน้าแรก -->
+        <div class="dropdown">
+            <a href="หน้าเเรก.html" class="dropbtn" data-active="true">หน้าแรก 🏠</a>
+            <div class="dropdown-content">
+                <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                <a href="index.html" class="button-item">หน้ารายการ 📋</a>
+                <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ 🍽️</a>
+            </div>  
+        </div>
+        <!-- เมนูโรงแรม -->
+        <div class="dropdown">
+            <a href="#" class="dropbtn">สถานที่เเนะนำ 📍</a>
+            <div class="dropdown-content">
+                <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่ ☕️</a>
+                <a href="โรงเเรม.html" class="button-item">โรงแรม 🏨</a>
+            </div>
+        </div>
+        <!-- เมนูกิจกรรม -->
+        <div class="dropdown">
+            <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว 🌍</a>
+            <div class="dropdown-content">      
+                <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="header">
+
+</div>
+<br>
+
+<div class="container">
+    <div class="filter">
+        <input type="text" placeholder="ค้นหาโรงแรม... 🔍">
+    </div>
+    <div class="card">
+        <img src="โรงเเรม/1.webp" alt="Modena by Fraser Buriram Image">
+        <div class="card-content">
+            <h3>Modena by Fraser Buriram 🏨</h3>
+            <p>โรงแรมที่มีการออกแบบทันสมัย พร้อมสิ่งอำนวยความสะดวกครบครัน เหมาะสำหรับการพักผ่อนและทำงาน 🛌</p>
+            <p>ที่ตั้ง: 88/8 ถนนอิสระภาพ, อำเภอเมือง, บุรีรัมย์</p>
+            <p>เวลาทำการ: เปิดตลอด 24 ชั่วโมง</p>
+            <p>ราคา: 1,500 - 3,500 บาท 💵</p>
+            <div class="cta">
+                <a href="https://th.trip.com/hotels/buri-ram-hotel-detail-23729086/modena-by-fraser-buriram/?rankingId=100200177906&tid=H0008_10650080900_best&locale=th-TH&curr=THB">ดูรายละเอียด 📖</a>
+            </div>  
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="โรงเเรม/2.webp" alt="Modena by Fraser Buriram Image">
+        <div class="card-content">
+            <h3>Modena by Fraser Buriram 🏨</h3>
+            <p>โรงแรมที่มีการออกแบบทันสมัย พร้อมสิ่งอำนวยความสะดวกครบครัน เหมาะสำหรับการพักผ่อนและทำงาน 🛌</p>
+            <p>ที่ตั้ง: 88/8 ถนนอิสระภาพ, อำเภอเมือง, บุรีรัมย์</p>
+            <p>เวลาทำการ: เปิดตลอด 24 ชั่วโมง</p>
+            <p>ราคา: 1,500 - 3,500 บาท 💵</p>
+            <p>คะแนน: 4.5/5 ⭐️</p>
+            <p>สิ่งอำนวยความสะดวก: Wi-Fi ฟรี, สระว่ายน้ำ, ฟิตเนส, ห้องประชุม</p>
+            <p>ความคิดเห็น: "โรงแรมที่ดีมาก บริการเยี่ยมและสะอาด" - ผู้เข้าพัก</p>
+            <div class="cta">
+                <a href="https://th.trip.com/hotels/buri-ram-hotel-detail-23729086/modena-by-fraser-buriram/?rankingId=100200177906&tid=H0008_10650080900_best&locale=th-TH&curr=THB">ดูรายละเอียด 📖</a>
+            </div>  
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="โรงเเรม/3.webp" alt="The Crystal Hotel Buriram Image">
+        <div class="card-content">
+            <h3>The Crystal Hotel Buriram 🏨</h3>
+            <p>โรงแรมที่มีการออกแบบทันสมัย พร้อมสิ่งอำนวยความสะดวกครบครัน เหมาะสำหรับการพักผ่อนและทำงาน 🛌</p>
+            <p>ที่ตั้ง: 88/8 ถนนอิสระภาพ, อำเภอเมือง, บุรีรัมย์</p>
+            <p>เวลาทำการ: เปิดตลอด 24 ชั่วโมง</p>
+            <p>ราคา: 1,200 - 2,800 บาท 💵</p>
+            <p>คะแนน: 4.2/5 ⭐️</p>
+            <p>สิ่งอำนวยความสะดวก: Wi-Fi ฟรี, สระว่ายน้ำ, ฟิตเนส, ห้องประชุม</p>
+            <p>ความคิดเห็น: "บริการดีมาก ห้องพักสะอาดและสะดวกสบาย" - ผู้เข้าพัก</p>
+            <div class="cta">
+                <a href="https://th.trip.com/hotels/buri-ram-hotel-detail-5615262/the-crystal-hotel-buriram-formerly-x2-vibe-buriram/?rankingId=100200177906&tid=H0008_10650080900_best&locale=th-TH&curr=THB">ดูรายละเอียด 📖</a>
+            </div>  
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="โรงเเรม/4.webp" alt="Cresco Hotel Buriram Image">
+        <div class="card-content">
+            <h3>Cresco Hotel Buriram 🏨</h3>
+            <p>โรงแรมที่มีการออกแบบทันสมัย พร้อมสิ่งอำนวยความสะดวกครบครัน เหมาะสำหรับการพักผ่อนและทำงาน 🛌</p>
+            <p>ที่ตั้ง: 88/8 ถนนอิสระภาพ, อำเภอเมือง, บุรีรัมย์</p>
+            <p>เวลาทำการ: เปิดตลอด 24 ชั่วโมง</p>
+            <p>ราคา: 1,200 - 2,800 บาท 💵</p>
+            <p>คะแนน: 4.0/5 ⭐️</p>
+            <p>สิ่งอำนวยความสะดวก: Wi-Fi ฟรี, สระว่ายน้ำ, ฟิตเนส, ห้องประชุม</p>
+            <p>ความคิดเห็น: "บริการดีมาก ห้องพักสะอาดและสะดวกสบาย" - ผู้เข้าพัก</p>
+            <div class="cta">
+                <a href="https://th.trip.com/hotels/buri-ram-hotel-detail-6218706/cresco-hotel-buriram/?rankingId=100200177906&tid=H0008_10650080900_best&locale=th-TH&curr=THB">ดูรายละเอียด 📖</a>
+            </div>  
+        </div>
+    </div>
+    <div class="card">
+        <img src="โรงเเรม/5.jpg" alt="Cresco Hotel Buriram Image">
+        <div class="card-content">
+            <h3>Cresco Hotel Buriram 🏨</h3>
+            <p>โรงแรมที่มีการออกแบบทันสมัย พร้อมสิ่งอำนวยความสะดวกครบครัน เหมาะสำหรับการพักผ่อนและทำงาน 🛌</p>
+            <p>ที่ตั้ง: <a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%A1%E0%B8%9E%E0%B8%99%E0%B8%A1%E0%B8%A3%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%9B%E0%B8%B8%E0%B8%A3%E0%B8%B5/@14.6462402,102.7949,3a,75y,90t/data=!3m8!1e2!3m6!1shttps:%2F%2Fimages.trvl-media.com%2Flodging%2F6000000%2F5020000%2F5013200%2F5013171%2F9a83508e_z.jpg!2e7!3e27!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-proxy%2FALd4DhHZHBGpDKz0PD_EaY9B4fceDpR97JcjbhlnxBVy4c_Op63iEc38jZbWcCY5EdljJABbO3Fa1BsLCVeqL6_9qqsqnV8PWwRl-w8bMPkWuhqrjFGWKWOizxwi05_jA0dQ8FP-iu-Tv8cFJgiWu8RlEO2SiWASyJqCzJR-qWtD122e4uJOivNWDu9L%3Dw129-h86-k-no!7i1000!8i666!4m10!3m9!1s0x311bd530b6c393af:0x1de4b73096d6e3a2!5m2!4m1!1i2!8m2!3d14.6462201!4d102.7950947!10e5!16s%2Fg%2F12mkvmy12?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D">88/8 ถนนอิสระภาพ, อำเภอเมือง, บุรีรัมย์</a></p>
+            <p>เวลาทำการ: เปิดตลอด 24 ชั่วโมง</p>
+            <p>ราคา: 1,200 - 2,800 บาท 💵</p>
+            <p>คะแนน: 4.0/5 ⭐️</p>
+            <p>สิ่งอำนวยความสะดวก: Wi-Fi ฟรี, สระว่ายน้ำ, ฟิตเนส, ห้องประชุม</p>
+            <p>ความคิดเห็น: "บริการดีมาก ห้องพักสะอาดและสะดวกสบาย" - ผู้เข้าพัก</p>
+            <div class="cta">
+                <a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%A1%E0%B8%9E%E0%B8%99%E0%B8%A1%E0%B8%A3%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%9B%E0%B8%B8%E0%B8%A3%E0%B8%B5/@14.6462402,102.7949,3a,75y,90t/data=!3m8!1e2!3m6!1shttps:%2F%2Fimages.trvl-media.com%2Flodging%2F6000000%2F5020000%2F5013200%2F5013171%2F9a83508e_z.jpg!2e7!3e27!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-proxy%2FALd4DhHZHBGpDKz0PD_EaY9B4fceDpR97JcjbhlnxBVy4c_Op63iEc38jZbWcCY5EdljJABbO3Fa1BsLCVeqL6_9qqsqnV8PWwRl-w8bMPkWuhqrjFGWKWOizxwi05_jA0dQ8FP-iu-Tv8cFJgiWu8RlEO2SiWASyJqCzJR-qWtD122e4uJOivNWDu9L%3Dw129-h86-k-no!7i1000!8i666!4m10!3m9!1s0x311bd530b6c393af:0x1de4b73096d6e3a2!5m2!4m1!1i2!8m2!3d14.6462201!4d102.7950947!10e5!16s%2Fg%2F12mkvmy12?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D">ดูรายละเอียด 📖</a>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>

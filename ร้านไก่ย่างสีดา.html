@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="th"> <!-- ควรเปลี่ยนเป็น th เนื่องจากเป็นเว็บภาษาไทย -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ร้านไก่ย่างสีดา/หน้าร้าน.jpg" style="height: auto; width: auto;" sizes="16x16">
+    <link rel="stylesheet" href="styles2 copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- เพิ่ม Font Awesome สำหรับไอคอน social media -->
+    <script src="scrict.js"></script> 
+    <title>ร้านไก่ย่างสีดา</title>
+</head>
+<body>
+    <style>
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .restaurant-card {
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: white;
+            transition: transform 0.2s;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .restaurant-image {
+            position: relative;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .restaurant-details {
+            padding: 15px;
+        }
+        
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .rating {
+            color: #f5a623;
+            margin: 8px 0;  
+        }
+        
+        .review-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .price-range {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .additional-info {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-block {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-block h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .info-block p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-block ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+    </style>
+
+    <!-- เมนูนำทาง -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" alt="โลโก้เว็บไซต์"> <!-- เพิ่ม alt text -->
+        </div>
+        <nav class="nav-menu">
+            <!-- เมนูหน้าแรก -->
+            <div class="dropdown">
+                <a href="หน้าเเรก.html" class="dropbtn" data-active="false">หน้าแรก</a>
+                <div class="dropdown-content">
+                    <a href="หน้าเเรก.html" class="button-item">หน้าเเรก</a>
+                    <a href="index.html" class="button-item">หน้ารายการ</a>
+                    <a href="ร้านเเนะนำ.html" class="button-item">ร้านอาหารเเนะนำ</a>
+                    
+                </div>  
+            </div>
+            <!-- เมนูโรงแรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่เเนะนำ 📍</a>
+                <div class="dropdown-content">
+                    <a href="ร้านคาเฟ่.html" class="button-item">ร้านคาเฟ่ ☕️</a>
+                    <a href="โรงเเรม.html" class="button-item">โรงแรม 🏨</a>
+                </div>
+            </div>
+            <!-- เมนูกิจกรรม -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-menu="activities">สถานที่ท่องเที่ยว</a>
+                <div class="dropdown-content">      
+                    <a href="กีฬา.html" class="button-item" data-value="sports">กีฬา ⚽️</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="breadcrumbs"></section>
+
+    <!-- หัวข้อหลัก -->
+    <header>
+        <h1>ร้านบุรีรัมย์ ครัวอีสาน</h1>
+        <p class="sub-header">รายการร้านอาหารแนะนำ</p> <!-- แก้ไขคำผิด เเ เป็น แ -->
+    </header>
+
+    <!-- รายการร้านอาหาร -->
+    <section class="restaurant-grid">
+        <!-- ร้านที่ 1-4 -->
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/กระเพาหม฿สับ.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">กระเพาหมูสับ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="restaurant-card">
+        <div class="image-container">
+            <img src="ครัวอีสาน/คอหมูย่าว.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+            <span class="status-badge">เปิดอยู่</span>
+        </div>
+        <div class="restaurant-details">
+            <h2 class="restaurant-name">คอหมุย่าง</h2>
+            <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+            <p class="location">🏠 เมืองบุรีรัมย์</p>
+            <p class="opening-hours">
+                <span class="icon">🕒</span> 
+                จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+            </p>
+            <div class="tags">
+                <span class="tag">เดลิเวอรี่</span>
+                <span class="tag">ที่จอดรถ</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="restaurant-card">
+    <div class="image-container">
+        <img src="ครัวอีสาน/ตับขั้ว.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+        <span class="status-badge">เปิดอยู่</span>
+    </div>
+    <div class="restaurant-details">
+        <h2 class="restaurant-name">ตับขั้ว</h2>
+        <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+        <p class="location">🏠 เมืองบุรีรัมย์</p>
+        <p class="opening-hours">
+            <span class="icon">🕒</span> 
+            จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+        </p>
+        <div class="tags">
+            <span class="tag">เดลิเวอรี่</span>
+            <span class="tag">ที่จอดรถ</span>
+        </div>
+    </div>
+</div>
+
+    <div class="restaurant-card">
+    <div class="image-container">
+                    <img src="ครัวอีสาน/ตำถั่ว.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำถั่ว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ตำปูปลาร้า.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำปูปลาร้า</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ตำหน่อไม้.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำหน่อไม้</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ตำไทย.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ตำไทย</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ต้มเนื้อ.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ต้มเนื้อ</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ต้มไข่มดแดง.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ต้มไข่มดแดง</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ปลานิลทอด.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ปลานิลทอด</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ปากเป็ดทอด.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ปากเป็ดทอด</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ยำหมึก.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ยำหมึก</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/หมึกทอดกระเทียม.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">หมึกทอดกระเทียม</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/หมุเเดดเดียวทอด.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">หมูเเดดเดียว</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/เเกงป่า.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">เเกงป่า</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="restaurant-card">
+            <div class="image-container">
+                <img src="ครัวอีสาน/ไข่เจียวฟู.jpg" alt="เนื้อเสียบไม้" class="restaurant-image">
+                <span class="status-badge">เปิดอยู่</span>
+            </div>
+            <div class="restaurant-details">
+                <h2 class="restaurant-name">ไข่เจียวฟู</h2>
+                <p class="cuisine">อาหารอีสาน/ร้านส้มตำ</p>
+                <p class="location">🏠 เมืองบุรีรัมย์</p>
+                <p class="opening-hours">
+                    <span class="icon">🕒</span> 
+                    จันทร์ - อาทิตย์ 09.00 - 17.00 <br>เปิดทุกวัน
+                </p>
+                <div class="tags">
+                    <span class="tag">เดลิเวอรี่</span>
+                    <span class="tag">ที่จอดรถ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- เพิ่มส่วนข้อมูลเพิ่มเติม -->
+    <section class="additional-info">
+        <div class="container">
+            <div class="info-block">
+                <h2>เกี่ยวกับร้านครัวอีสาน</h2>
+                <p>ร้านครัวอีสานเป็นร้านโดยเฉพาะในเรื่องของอาหารอีสานที่มีรสชาติจัดจ้านและวัตถุดิบสดใหม่ ร้านนี้เปิดให้บริการมานานและได้รับความนิยมจากทั้งชาวท้องถิ่นและนักท่องเที่ยว เมนูที่แนะนำได้แก่ ส้มตำ, ลาบ, และข้าวเหนียวที่มีรสชาติอร่อยและเป็นเอกลักษณ์</p>
+            </div>
+
+            <div class="info-block">
+                <h2>บริการของเรา</h2>
+                <ul>
+                    <li>🍽️ รับจัดเลี้ยงนอกสถานที่</li>
+                    <li>🛵 บริการส่งอาหารผ่าน Grab, Food Panda, Robinhood</li>
+                    <li>🅿️ ที่จอดรถกว้างขวาง</li>
+                    <li>👨‍👩‍👦 เหมาะสำหรับครอบครัวและกลุ่มเพื่อน</li>
+                    <li>💳 รับชำระผ่านบัตรเครดิต/เดบิต และ Mobile Banking</li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h2>ติดต่อเรา</h2>
+                <p>📞 โทร: 044-614499</p>
+                <p>📍 ที่อยู่: 444/4 ถ.จิระ ���.ในเมือง อ.เมืองบุรีรัมย์ จ.บุรีรัมย์ 31000</p>
+                <p>⏰ เวลาทำการ: จันทร์ - อาทิตย์ 10:30 - 21.00 น.</p>
+                <p>🌐 Facebook: <a href="https://www.facebook.com/pedyangkumuang">Ped Yang Ku Muang</a></p>
+                <p>🗺️ แผนที่: <a href="https://www.google.com/maps?q=14.997671715270183, 103.10524642776534">ดูเส้นทาง</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
